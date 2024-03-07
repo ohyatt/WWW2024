@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandwich Survey</title>
+</head>
+
+<body>
+    <header style="background-color: orange;">
+        <h1>Sandwich Survey</h1>
+        <p>Please fill in our survey:</p>
+    </header>
+
+    <main>
+        <form action="evaluate.php" method="post">
+            <fieldset>
+                <legend>Basic information</legend>
+
+
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname" placeholder="Enter your first name" required/>
+            </fieldset>
+
+            <fieldset>
+                <legend>Sandwich preference</legend>
+                <label for="quantity">How many sandwiches do you eat per weak?</label>
+                <input type="number" min="0" max="10" name="quantity" required/>
+
+                <br>
+                <label for=""sandwich">Which sandwich do you prefer</label>
+                <br>
+                <input type="radio" name="sandwich" value="Chicken" checked>Chicken
+                <br>
+                <input type="radio" name="sandwich" value="Tuna">Tuna
+                <br>
+                <input type="radio" name="sandwich" value="Fish">Fish
+
+                <br>
+                <label for="comments">Other stuff you would like to tell us:</label>
+                <p>
+                    <textarea rows="3" cols="30" name="comments"></textarea>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    Actions
+                </legend>
+                <input type="reset" value="Reset" />
+                <input type="submit" value="Submit"/>
+                <button onclick="alert('You like sandwiches')">Click here if you like sandwiches</button>
+            </fieldset>
+        </form>
+    </main>
+
+    <footer style="background-color: lightgreen;">
+        <div style="font-style: italic;">
+            <h3>Thank you for your time!</h3>
+            <p> Visit us for a free sandwich!</p>
+        </div>
+    </footer>
+</body>
+</html>
