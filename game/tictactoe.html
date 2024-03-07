@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe</title>
+</head>
+<body onload="displayBoard()">
+    <canvas id="board" width="300" height="300" onclick="process(event)"></canvas>
+</body>
+
+<script>
+
+var playerX = 'X';
+var playerO = 'O';
+var start = true;
+var context;
+var width, height;
+
+function displayBoard() {
+   var board = document.getElementById('board');
+  
+   width = board.width;
+   height = board.height;
+   context = board.getContext('2d');
+
+   context.beginPath();
+   context.strokeStyle = '#000'; 
+   context.lineWidth   = 4;
+
+   context.moveTo((width / 3), 0);
+   context.lineTo((width / 3), height);
+
+   context.moveTo((width / 3) * 2, 0);
+   context.lineTo((width / 3) * 2, height);
+
+   context.moveTo(0, (height / 3));
+   context.lineTo(width, (height / 3));
+
+   context.moveTo(0, (height / 3) * 2);
+   context.lineTo(width, (height / 3) * 2);
+
+   context.stroke();  // confirma lo que se dibujara
+   context.closePath();
+  
+   if (start) {
+      var position = Math.floor(Math.random() * 9);
+      markPlayer(1 << position, 'O');	// 1 << 2: 00000100
+      start = false;
+   } else {
+      start = true;
+   }   
+}
+
+function markPlayer(position, turn) {
+   var bit = 1;
+   var posX = 0, posY = 0;
+   
+   while ((position & bit) == 0) {
+	bit = bit << 1;
+    posX++;
+	
+	if (posX > 2) {
+	    posX = 0;
+        posY++;
+    }
+   }
+   
+   if (turn == 'O') { 
+	playerO = playerO | bit;
+	drawPlayer(posX, posY, 'O');
+   }
+   else {
+    playerX = playerX | bit;
+	drawPlayer(posX, posY, 'X');
+   }
+}
+
+function drawPlayer(x, y, player){
+   context.beginPath();
+   context.lineWidth = 4;
+   var xMargin = (width / 3) * 0.1;
+   var yMargin = (height / 3) * 0.1;
+   var startX = x * (width / 3) + xMargin;
+   var startY = y * (height / 3) + yMargin;
+   var endX = (x + 1) * (width / 3) - xMargin * 2;
+   var endY = (y + 1) * (height / 3) - yMargin * 2;
+
+   if (player == 'X') {
+     context.strokeStyle = '#ff0000'; 
+     context.moveTo(startX, startY);
+     context.lineTo(endX, endY); 
+     context.moveTo(startX, endY);
+     context.lineTo(endX, startY); 	
+   }
+   else{
+     context.strokeStyle = '#0000ff'; 
+     context.arc(startX + ((endX - startX) / 2), startY + ((endY - startY) / 2), (endX - startX) / 2 , 0, Math.PI * 2, true);
+   }
+
+   context.stroke();
+   context.closePath(); 
+}
+
+function process(e) {
+    var y = Math.floor(e.clientY / (height / 3));    
+    var x =  Math.floor(e.clientX / (width / 3)); 
+    var bit =  (1 << x + ( y * 3 ));
+
+    if (isEmpty(playerX, playerO, bit)) {
+		markPlayer(bit, 'X')
+
+        if (checkWinner(playerX)) {
+            alert('You win!!');
+            setTimeout(restart, 4000);
+            //restart();
+        }
+        else {
+            if (checkTie())  {
+                alert('It is a tie!!');
+                setTimeout(restart, 4000);         
+            }
+            else {
+				play();
+
+                if (checkWinner(playerO)) {
+                    alert('You lost!!');
+                    setTimeout(restart, 4000);
+                }
+                else {
+                    if (checkTie())  {
+                        alert('It is a tie!!');
+                        setTimeout(restart, 4000);         
+                    }        
+                }
+            }
+        }
+    }
+}
+
+function checkTie(){
+   return ((playerX | playerO) == 0x1FF);
+}
+
+function checkWinner(player) {
+   return (((player | 0x1C0) == player) || ((player | 0x38 ) == player) || 
+	((player | 0x7) == player) || ((player | 0x124) == player) || 
+	((player | 0x92) == player) || ((player | 0x49) == player) || 
+	((player | 0x111) == player) || ((player | 0x54) == player)) 
+}
+
+function restart() {
+   context.clearRect (0, 0, width, height);
+   playerX = 0;
+   playerO = 0;
+   displayBoard();
+}
+
+function isEmpty(playerX, playerO, bit) {
+   return (((playerX & bit) == 0) && ((playerO & bit) == 0));
+}
+
+function simulate(playerO, playerX) {
+   var ratio = 0;
+ 
+   var bit = 0;
+   for (var i= 0; i < 9; i++) {
+        var cBit = 1 << i;
+
+	if (isEmpty(playerX, playerO, cBit)) {
+           if (checkWinner(playerO | cBit)) {
+	      bit = cBit;
+	      break;
+	   } else if (checkWinner(playerX | cBit)) {
+	      bit = cBit;
+	   } 
+	}
+   }
+   
+   if (bit == 0) {
+      for (var i= 0; i < 9; i++) {
+	  var cBit = 1 << i;
+
+	  if (isEmpty(playerX, playerO, cBit)) {
+	      var result = determine(playerO, playerX, 'X', 0, 1)
+	      if (ratio == 0 || ratio < result) {
+	         ratio = result;
+	         bit = cBit;
+	      }
+	   }
+       }
+   }	
+   return bit;
+}
+
+function determine(playerO, playerX, player, bit, ratio) {
+   if (player == 'O') {
+	playerO = playerO | bit;
+   } else {
+	playerX = playerX | bit;
+   }
+
+   if (checkWinner(playerO)) {
+      ratio *= 1.1; 
+      return ratio;
+
+   } else if (checkWinner(playerX)) {       
+      ratio *= 0.7; 
+      return ratio;
+
+   } else {
+	var best = 0;
+	ratio *= 0.6; 
+
+	for (var i= 0; i < 9; i++) {
+	   if (isEmpty(playerX, playerO, 1 << i)) {
+               var newRatio = determine(playerO, playerX, player == 'O' ? 'X' : 'O', 1 << i, ratio);
+
+               if (best == 0 || best < newRatio) {
+		  best = newRatio;
+               }
+	  }
+ 	}
+
+	return best;
+   }
+}
+
+function play() {  
+   var bestOption = simulate(playerO, playerX);
+   markPlayer(bestOption, 'O');
+   
+}
+
+</script>
+
+</html>
