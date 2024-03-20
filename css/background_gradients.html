@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Gradients</title>
+
+    <style>
+        #grad1 {
+            height: 200px;
+            background-color: green; /* For browsers that do not support gradients */
+            background-image: linear-gradient(green, orange);
+        }
+        #grad2 {
+            height: 200px;
+            background-color: red; /* For browsers that do not support gradients */
+            background-image: linear-gradient(to right, red , blue);
+        }
+        #grad3 {
+            height: 200px;
+            background-color: orange; /* For browsers that do not support gradients */
+            background-image: linear-gradient(to bottom right, orange, black);
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Background Gradients</h1>
+
+    <h2>Linear Gradient - Top to Bottom</h2>
+    <p>This linear gradient starts green at the top, transitioning to orange at the bottom:</p>
+    <div id="grad1"></div>
+
+    <h2>Linear Gradient - Left to Right</h2>
+    <p>This linear gradient starts red at the left, transitioning to blue (to the right):</p>
+    <div id="grad2"></div>
+
+    <h2>Linear Gradient - Diagonal</h2>
+    <p>This linear gradient starts orange at top left, transitioning to black (at bottom right):</p>
+    <div id="grad3"></div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows</title>
+
+    <style>
+        h1 {
+            text-shadow: 2px 2px 5px red;
+        }
+        h2 {
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        h3 {
+            text-shadow: 0 0 3px orange;
+        }
+        #basic {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            background-color: coral;
+            box-shadow: 10px 10px lightblue;
+        }
+        #blur {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            background-color: lightblue;
+            box-shadow: 10px 10px 5px coral;
+        }
+        #spread {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            background-color: blue;
+            box-shadow: 10px 10px 5px 12px lightblue;
+        }
+        #inset {
+            width: 200px;
+            height: 100px;
+            padding: 20px;
+            background-color: blue;
+            box-shadow: 10px 10px 5px 12px lightblue inset;
+        }
+
+        #multiple {
+            border: 2px solid;
+            padding: 20px;
+            box-shadow: 5px 5px 8px blue, 10px 10px 8px red, 15px 15px 8px green;
+            margin: 20px;
+        }
+
+        div.polaroid {
+            width: 250px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-align: center;
+        }
+        div.container {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WWW Technology In UTB!</h1>
+    <h2>My name is Minsu LEE</h2>
+    <h3>You're seeing Orange Neon Glow Shadow</h3>
+    
+    <p id="basic">Box Shadow</div>
+    <p id="blur">Box Shadow with BLUR</p>
+    <p id="spread">Box Shadow with SPREAD</p>
+    <br>
+    <p id="inset">Box Shadow with INSET</p>
+    <p id="multiple">Multiple Shadow Box</p>
+
+    <div class="polaroid">
+        <img src="Alps.jpeg" alt="Alps" style="width:100%">
+        <div class="container">
+            <p>Alps Ski resort</p>
+        </div>
+    </div>
+</body>
+</html>

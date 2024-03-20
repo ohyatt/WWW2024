@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Transformation</title>
+
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid black;
+        }
+
+        div#translate {
+            transform: translate(100px,10px);
+        }
+
+        div#rotate {
+            transform: rotate(30deg);
+        }
+        
+        div#scale {
+            margin: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+            transform: scale(0.5,0.5);
+        }
+
+        div#scaleX {
+            margin: 150px;
+            background-color: yellow;
+            border: 1px solid black;
+            transform: scaleX(2);
+        }
+
+        div#scaleY {
+            margin: 150px;
+            background-color: yellow;
+            border: 1px solid black;
+            transform: scaleY(2);
+        }
+
+        div#skew {
+            transform: skew(20deg,10deg);
+        }
+
+        div#matrix {
+            transform: matrix(1, -0.5, 0, 1, 20, 30);
+        }
+    </style>
+</head>
+
+<body>
+    <div>This is a normal div element.</div>
+    <div id="translate">
+        This element is moved 100 pixels to the right, and 10 pixels down from its current position.
+    </div>
+    <br>
+    <div>This is a normal div element.</div>
+    <div id="rotate">
+        This div element is rotated clockwise 30 degrees.
+    </div>
+    <div id="scale">
+        This div element is decreased to be half of its original width and height.
+    </div>
+    <div id="scaleX">
+        This div element is two times of its original width.
+    </div>
+    <div id="scaleY">
+        This div element is two times of its original height.
+    </div>
+
+    <div>This is a normal div element.</div>
+    <div id="skew">
+        This div element is skewed 20 degrees along the X-axis, and 10 degrees along the Y-axis.
+    </div>
+    <br>
+    <div>This a normal div element.</div>
+    <div id="matrix">
+        Using the matrix() method.
+    </div>
+</body>
+</html>

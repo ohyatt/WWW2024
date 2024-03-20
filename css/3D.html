@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Transformation</title>
+
+    <style>
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: lightblue;
+            border: 1px solid black;
+        }
+        #rotateX {
+            transform: rotateX(150deg);
+        }
+        #rotateY {
+            transform: rotateY(150deg);
+        }
+        #rotateZ {
+            transform: rotateZ(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div>This a normal div element.</div>
+    <div id="rotateX">
+        Rotated 150 degrees(X-axis).
+    </div>
+    <div id="rotateY">
+        Rotated 150 degrees(Y-axis).
+    </div>
+    <br>
+    <div>This a normal div element.</div>
+    <div id="rotateZ">
+        Rotated 90 degrees(Z-axis).
+    </div>
+</body>
+</html>
