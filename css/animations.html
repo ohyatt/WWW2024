@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+
+    <style> 
+        div {
+          width: 100px;
+          height: 100px;
+          background-color: red;
+          position: relative;
+          animation-name: example;
+          animation-duration: 4s;
+          animation-delay: 3s;
+          animation-iteration-count: 5;
+          animation-direction: alternate-reverse;
+        }
+        
+        @keyframes example {
+          0%   {background-color:red; left:0px; top:0px;}
+          25%  {background-color:yellow; left:100px; top:0px;}
+          50%  {background-color:blue; left:100px; top:50px;}
+          75%  {background-color:green; left:0px; top:50px;}
+          100% {background-color:red; left:0px; top:0px;}
+        }
+
+        #speed1 {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            font-weight: bold;
+            position: relative;
+            animation: mymove 5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+        }
+        #speed2 {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            font-weight: bold;
+            position: relative;
+            animation: mymove 5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        #speed3 {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            font-weight: bold;
+            position: relative;
+            animation: mymove 5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-in;
+        }
+        #speed4 {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            font-weight: bold;
+            position: relative;
+            animation: mymove 5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+        }
+        #speed5 {
+            width: 100px;
+            height: 50px;
+            background-color: orange;
+            font-weight: bold;
+            position: relative;
+            animation: mymove 5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes mymove {
+            from {left: 0px;}
+            to {left: 300px;}
+        }
+
+        #fillmode {
+            width: 100px;
+            height: 100px;
+            background: orange;
+            position: relative;
+            animation-name: example2;
+            animation-duration: 3s;  
+            animation-delay: 2s;
+            animation-fill-mode: both;
+        }
+        @keyframes example2 {
+            from {top: 0px; background-color: lightblue;}
+            to {top: 200px; background-color: blue;}
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Animation</h1>
+
+    <h2>Check List of Moving box</h2>
+    <ul>
+        <li>The box will start to move after delay of 3s. So Please wait for 3 seconds.</li>
+        <li>The box is set to iterate 5 times.</li>
+        <li>The direction of movement of the box : "Alternate-Reverse"</li>
+    </ul>
+    
+    <div>Moving Box</div>
+
+    <br><br><br>
+    <hr>
+    <h2>Compare the Speed Curve of the Animation</h2>
+    <p id="speed1">linear</p>
+    <p id="speed2">ease</p>
+    <p id="speed3">ease-in</p>
+    <p id="speed4">ease-out</p>
+    <p id="speed5">ease-in-out</p>
+
+    <br>
+    <hr>
+    <h2> Set fill-mode by "both"</h2>
+    <p id="fillmode">fill-mode:both</p>
+    
+</body>
+</html>
