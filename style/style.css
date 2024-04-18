@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #364;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    animation: titleAnimation 2s infinite alternate;
+}
+
+.header-context {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer{
+    background-color: #3498db;
+    color:rgb(255,255,255);
+    text-align: center;
+    padding: 1rem 0;
+}
+
+@keyframes titleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+h2 {
+    color: #3498db;
+}
+
+h1,h2 {
+    font-size: 2em;
+    text-align: center;
+}
