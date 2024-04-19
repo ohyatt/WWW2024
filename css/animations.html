@@ -93,7 +93,22 @@
         }
         @keyframes example2 {
             from {top: 0px; background-color: lightblue;}
-            to {top: 200px; background-color: blue;}
+            to {top: 70px; background-color: blue;}
+        }
+
+        #shorthand {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: relative;
+            animation: example3 5s linear 2s infinite alternate;
+        }
+        @keyframes example3 {
+            0%   {background-color:red; left:0px; top:0px;}
+            25%  {background-color:yellow; left:200px; top:0px;}
+            50%  {background-color:blue; left:200px; top:200px;}
+            75%  {background-color:green; left:0px; top:200px;}
+            100% {background-color:red; left:0px; top:0px;}
         }
     </style>
 </head>
@@ -122,6 +137,11 @@
     <hr>
     <h2> Set fill-mode by "both"</h2>
     <p id="fillmode">fill-mode:both</p>
+
+    <br><br><br>
+    <hr>
+    <h2>Animation Shorthand Property</h2>
+    <p id="shorthand">shorthand property</p>
     
 </body>
 </html>

@@ -6,44 +6,80 @@
     <title>Index</title>
 
     <style>
+        .orange-rectangle {
+            background-color: orange;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80vh;
+            height: 60vh;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .white-rectangle {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 90%;
+            width: 90%;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            background-color: white;
+            color: blue;
+            padding: 10px;
+            text-align: center;
+            width: 80%;
+        }
         ol {
-            padding-left: 20px; /* 목차와 왼쪽 간격 조절 가능 */
-            list-style-type: decimal;
-            font-size: 18px; /* 목차 폰트 크기 조절 가능 */
-            color: #444; /* 원하는 색상으로 변경 가능 */
+            text-align: left;
+            width: 80%;
         }
     </style>
 </head>
 <body>
     <img src="./CSS.png" alt="CSS Logo" width="200" style="float: right;">
-    <h1>Practice Of CSS Advanced Skills</h1>
-    <p>Minsu LEE(A23789)</p>
+    <h1 style="text-align: center;">Practice Of CSS Advanced Skills</h1>
+    <p style="text-align: center;">Minsu LEE(A23789)</p>
     
     <hr>
-    <h2 style="background-color: white; color: blue;">Contents</h1>
-    <ol>
-        <li>
-            <a href="rounded_corner.html"> CSS3 Rounded Corner</a>
-        </li>
-        <li>
-            <a href="background_gradients.html"> CSS3 Background Gradients</a>
-        </li>
-        <li>
-            <a href="shadows.html"> CSS3 Shadows </a>
-        </li>
-        <li>
-            <a href="2D.html">CSS3 2D transformations</a>
-        </li>
-        <li>
-            <a href="3D.html">CSS3 3D transformations</a>
-        </li>
-        <li>
-            <a href="transitions.html">CSS3 Transitions</a>
-        </li>
-        <li>
-            <a href="animations.html">CSS3 Animations</a>
-        </li>
-        <li>CSS3 Columns (multiple-columns)</li>
-    </ol>
+    <div style="display: flex; justify-content: center; align-items: center;background-color: white;">
+        <div class="orange-rectangle">
+            <div class="white-rectangle">
+                <h2>Contents</h2>
+                <ol>
+                    <li>
+                        <a href="rounded_corner.html"> CSS3 Rounded Corner</a>
+                    </li>
+                    <li>
+                        <a href="background_gradients.html"> CSS3 Background Gradients</a>
+                    </li>
+                    <li>
+                        <a href="shadows.html"> CSS3 Shadows </a>
+                    </li>
+                    <li>
+                        <a href="2D.html">CSS3 2D transformations</a>
+                    </li>
+                    <li>
+                        <a href="3D.html">CSS3 3D transformations</a>
+                    </li>
+                    <li>
+                        <a href="transitions.html">CSS3 Transitions</a>
+                    </li>
+                    <li>
+                        <a href="animations.html">CSS3 Animations</a>
+                    </li>
+                    <li>
+                        <a href="columns.html"> CSS3 Columns (multiple-columns)</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
