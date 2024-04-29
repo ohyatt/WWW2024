@@ -17,7 +17,7 @@ aiButton.onclick = async function (event) {
         body: JSON.stringify(
             {
                 "temperature": 0.7,
-                "max-tokens": 800,
+                "max_tokens": 800,
                 "messages":[
                     {
                       "role": "system" ,

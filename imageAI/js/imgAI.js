@@ -17,7 +17,6 @@ aiButton.onclick = async function (event) {
         body: JSON.stringify(
             {
                 "temperature": 0.7,
-                "max_tokens": 800,
                 "prompt": text,
                 "size": "1024x1024",
                 "n":1,
